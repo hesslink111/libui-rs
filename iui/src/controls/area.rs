@@ -193,7 +193,7 @@ impl Area {
 
     /// Queues the entire `Area` to be redrawn. This function returns immediately;
     /// the `Area` is redrawn when the UI thread is next non-busy.
-    pub fn queue_redraw_all(&self, _ctx: &UI) {
+    pub fn queue_redraw_all(&self) {
         unsafe { ui_sys::uiAreaQueueRedrawAll(self.uiArea) }
     }
 
