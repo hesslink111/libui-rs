@@ -187,7 +187,7 @@ impl<'s> EventLoop<'s> {
     ///
     /// Returns `true` if the application should continue running, and `false`
     /// if it should quit.
-    pub fn next_tick(&mut self, _ctx: &UI) -> bool {
+    pub fn next_tick(&mut self) -> bool {
         let result = unsafe { ui_sys::uiMainStep(false as c_int) == 1 };
         if let Some(ref mut c) = self.callback {
             c();
