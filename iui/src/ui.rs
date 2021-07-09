@@ -134,7 +134,7 @@ impl UI {
     /// ui.queue_main(|| { println!("Runs second") } );
     /// ui.quit();
     /// ```
-    pub fn queue_main<F: FnMut() + 'static>(&self, callback: F) {
+    pub fn queue_main<F: FnMut() + 'static>(callback: F) {
         extern "C" fn c_callback<G: FnMut()>(data: *mut c_void) {
             unsafe {
                 from_void_ptr::<G>(data)();
